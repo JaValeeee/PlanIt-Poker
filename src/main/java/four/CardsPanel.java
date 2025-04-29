@@ -6,10 +6,12 @@ import java.awt.*;
 /**
  * Panel that displays the cards used for estimating.
  *
+ * Changed the panel so that when the cards are clicked, the result of the vote is shown
  * @author javiergs
  */
 public class CardsPanel extends JPanel {
-	
+
+	private String currentStory = "Current Story: Build User Login System";
 	private static final String[] CARD_VALUES = {
 		"0", "½", "1", "2", "3", "5", "8", "20", "40", "10", "0", "?"
 	};
@@ -40,9 +42,9 @@ public class CardsPanel extends JPanel {
 			int[] votes = { 1 }; // Single 100% vote
 
 			PieChartPanel pieChartPanel = new PieChartPanel(labels, votes);
-			pieChartPanel.setStory("Story: Implement Login Feature");
+			pieChartPanel.setStory(currentStory);
 			SouthPanel southPanel = new SouthPanel(); // Adding new completed stories
-			southPanel.addCompletedStory("Story: Implement Login Feature"); // Add story to completed
+			southPanel.addCompletedStory(currentStory); // Add story to completed
 
 
 			// Set layout if not already BorderLayout

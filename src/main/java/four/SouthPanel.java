@@ -7,6 +7,8 @@ import java.awt.*;
  * Stories organized in tabs.
  * The first tab contains the active stories, and the second one contains the completed stories.
  *
+ * After a vote, the completed story is updated
+ *
  * @author javiergs
  */
 public class SouthPanel extends JPanel {
