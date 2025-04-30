@@ -5,6 +5,9 @@ import four.DashboardPanel;
 import one.Blackboard;
 import one.Main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Controller responsible for managing the stories and their interactions with the user interface.
  *
@@ -13,6 +16,7 @@ import one.Main;
 public class StoriesNanny {
 	
 	private Main main;
+	public static List<String> activeStory = new ArrayList<>();
 	
 	public StoriesNanny(Main main) {
 		this.main = main;
@@ -20,11 +24,13 @@ public class StoriesNanny {
 	
 	public void saveAndAddNew(String text) {
 		System.out.println(text);
+		this.activeStory.add(text);
 		// add functionality to save the story and add a new one
 	}
 	
 	public void saveAndClose(String text) {
 		System.out.println(text);
+		this.activeStory.add(text);
 		Blackboard.addStory(text);
 		switchGUI();
 	}
@@ -46,6 +52,10 @@ public class StoriesNanny {
 		main.setLocationRelativeTo(null);
 		main.revalidate();
 		main.repaint();
+	}
+
+	public static List<String> getActive(){
+		return activeStory;
 	}
 
 }

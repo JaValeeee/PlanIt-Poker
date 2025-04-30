@@ -5,21 +5,22 @@ import java.awt.*;
 
 /**
  * Created a piechart to show the result after the vote
+ * it displays the title of the story getting voted on
  *
  * @author MichaelMan
  */
 class PieChartPanel extends JPanel {
     private String[] labels;
     private int[] values;
-    private String currentStory = "Current Story: Build User Login System"; // Default story
 
     public PieChartPanel(String[] labels, int[] values) {
         this.labels = labels;
         this.values = values;
 
         setLayout(new BorderLayout());
+        SouthPanel southPanel = new SouthPanel();
 
-        JLabel storyLabel = new JLabel(currentStory, SwingConstants.CENTER);
+        JLabel storyLabel = new JLabel(southPanel.topStory(), SwingConstants.CENTER);
         storyLabel.setFont(new Font("Arial", Font.BOLD, 18));
         storyLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
@@ -27,9 +28,6 @@ class PieChartPanel extends JPanel {
         add(new PieCanvas(), BorderLayout.CENTER);
     }
 
-    public void setStory(String story) {
-        this.currentStory = story;
-    }
 
     private class PieCanvas extends JPanel {
         @Override

@@ -40,11 +40,10 @@ public class CardsPanel extends JPanel {
 
 			String[] labels = { value };
 			int[] votes = { 1 }; // Single 100% vote
-
+			SouthPanel southPanel = new SouthPanel();
 			PieChartPanel pieChartPanel = new PieChartPanel(labels, votes);
-			pieChartPanel.setStory(currentStory);
-			SouthPanel southPanel = new SouthPanel(); // Adding new completed stories
-			southPanel.addCompletedStory(currentStory); // Add story to completed
+			 // Adding new completed stories
+			southPanel.addCompletedStory(southPanel.topStory()); // Add story to completed
 
 
 			// Set layout if not already BorderLayout
